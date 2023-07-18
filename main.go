@@ -6,6 +6,7 @@ import (
 	"log"
 	"os"
 	"strconv"
+	"strings"
 	"time"
 
 	"github.com/shomali11/slacker"
@@ -33,9 +34,9 @@ func main() {
 	go printCommandEvents(bot.CommandEvents())
 
 	var ExamplesArray []string
-	ExamplesArray[0] = "my age is  20"
+	strings.Join(ExamplesArray, "my yob is  20") 
 
-	bot.Command("my age is <age>", &slacker.CommandDefinition{
+	bot.Command("my yob is <year>", &slacker.CommandDefinition{
 		Description: "age calculator",
 		Examples:    ExamplesArray,
 		Handler: func(botCtx slacker.BotContext, request slacker.Request, response slacker.ResponseWriter) {
